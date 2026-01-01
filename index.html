@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Price Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="pc-price-form">
+        <h1>PC Price Calculator</h1>
+
+        <div class="field">
+            <label for="cpu">CPU ($):</label>
+            <input type="number" id="cpu" name="cpu" required>
+        </div>
+
+        <div class="field">
+            <label for="motherboard">Motherboard ($):</label>
+            <input type="number" id="motherboard" name="motherboard" required>
+        </div>
+
+        <div class="field">
+            <label for="gpu">GPU ($):</label>
+            <input type="number" id="gpu" name="gpu" required>
+        </div>
+
+        <div class="field">
+            <label for="ram">RAM ($):</label>
+            <input type="number" id="ram" name="ram" required>
+        </div>
+
+        <div class="field">
+            <label for="storage">Storage ($):</label>
+            <input type="number" id="storage" name="storage" required>
+        </div>
+
+        <div class="field">
+            <label for="psu">PSU ($):</label>
+            <input type="number" id="psu" name="psu" required>
+        </div>
+
+        <div class="field">
+            <label for="case">Case ($):</label>
+            <input type="number" id="case" name="case" required>
+        </div>
+
+        <button type="button" onclick="calculatePrice()">Calculate Price</button>
+
+        <h2 id="total-price">Total Price: $0</h2>
+    </form>
+
+    <script>
+        function calculatePrice() {
+            const cpu = parseFloat(document.getElementById('cpu').value) || 0;
+            const motherboard = parseFloat(document.getElementById('motherboard').value) || 0;
+            const gpu = parseFloat(document.getElementById('gpu').value) || 0;
+            const ram = parseFloat(document.getElementById('ram').value) || 0;
+            const storage = parseFloat(document.getElementById('storage').value) || 0;
+            const psu = parseFloat(document.getElementById('psu').value) || 0;
+            const pcCase = parseFloat(document.getElementById('case').value) || 0;
+
+            const total_price = cpu + motherboard + gpu + ram + storage + psu + pcCase;
+            document.getElementById('total-price').textContent = 'Total Price: $' + total_price.toFixed(2);
+        }
+    </script>
+</body>
+</html>
